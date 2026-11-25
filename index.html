@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VeloIde — Fast Local-First Ziptie IDE</title>
+    <meta
+      name="description"
+      content="VeloIde is a free, fast, local-first IDE based on VeloWrite — open any file, press Run, and any compiler installs on demand. Includes local Qwen2.5-Coder-1.5B autocomplete and standalone Portable mode."
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app" class="vw-shell">
+      <header id="vw-topbar" class="vw-topbar">
+        <div class="vw-topbar-left">
+          <button
+            type="button"
+            id="vw-btn-toggle-sidebar"
+            class="vw-icon-btn"
+            title="Toggle Sidebar (Ctrl+\)"
+            aria-label="Toggle Sidebar"
+          ></button>
+          <span class="vw-brand" aria-label="VeloIde">VeloIde</span>
+          <span class="vw-topbar-sep" aria-hidden="true">/</span>
+          <div id="vi-tabs" class="vi-tabs" role="tablist" aria-label="Open files"></div>
+          <button
+            type="button"
+            id="vi-btn-new-scratch"
+            class="vw-icon-btn vi-new-tab-btn"
+            title="New Scratch Buffer (Ctrl+N)"
+            aria-label="New Scratch Buffer"
+          ></button>
+        </div>
+
+        <div class="vw-topbar-right">
+          <span id="vw-save-status" class="vw-save-status" title="Local save status">
+            <span class="vw-save-dot"></span>
+            <span class="vw-save-label">Scratch</span>
+          </span>
+          <button
+            type="button"
+            id="vi-btn-run"
+            class="vi-run-btn"
+            title="Run current file (F5 or Ctrl+Enter)"
+          ></button>
+          <button
+            type="button"
+            id="vi-btn-drawer"
+            class="vw-icon-btn"
+            title="Toggle Output & Terminal (Ctrl+`)"
+            aria-label="Toggle Output & Terminal"
+          ></button>
+          <button
+            type="button"
+            id="vw-btn-palette"
+            class="vw-palette-trigger"
+            title="Command Palette (Ctrl+K)"
+          >
+            <span class="vw-palette-trigger-text">Commands</span>
+            <kbd>Ctrl+K</kbd>
+          </button>
+        </div>
+      </header>
+
+      <div id="vi-prompt-bar" class="vi-prompt-bar" hidden></div>
+
+      <div class="vw-workspace">
+        <aside id="vw-sidebar" class="vw-sidebar is-collapsed" aria-label="Files, search, and history"></aside>
+
+        <div class="vi-main-column">
+          <main id="vi-editor-host" class="vi-editor-host" aria-label="Code editor"></main>
+          <section id="vi-drawer" class="vi-drawer is-closed" aria-label="Output and Terminal"></section>
+        </div>
+      </div>
+
+      <footer id="vw-footer" class="vw-footer" aria-label="Editor status"></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

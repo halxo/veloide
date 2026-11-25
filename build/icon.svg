@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22211e"/>
+      <stop offset="100%" stop-color="#171614"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2a93b"/>
+      <stop offset="100%" stop-color="#e08b22"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded squircle matching VeloWrite -->
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#bg)" stroke="#33312c" stroke-width="8"/>
+  <!-- Minimalist Velo V mark -->
+  <path
+    d="M126 140 L256 382 L386 140"
+    fill="none"
+    stroke="#f5f4f0"
+    stroke-width="46"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Terminal / Run play spark inside the V (sibling to VeloWrite's nib dot) -->
+  <path
+    d="M232 162 L292 198 L232 234 Z"
+    fill="url(#accent)"
+  />
+  <!-- Subtle cursor underscore at apex -->
+  <rect x="234" y="264" width="44" height="14" rx="7" fill="#3a3832"/>
+</svg>

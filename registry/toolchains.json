@@ -1,0 +1,1556 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-25",
+  "remoteUrl": "https://raw.githubusercontent.com/halxo/veloide/main/registry/toolchains.json",
+  "qwen": {
+    "model": {
+      "id": "qwen2.5-coder-1.5b",
+      "name": "Qwen2.5-Coder-1.5B (Q4_K_M)",
+      "source": "huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF",
+      "license": "Apache-2.0",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-Coder-1.5B-Instruct-GGUF/resolve/main/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+      "filename": "qwen2.5-coder-1.5b-instruct-q4_k_m.gguf",
+      "size": 1117320768,
+      "sha256": "cc324af070c2ecbfd324a30884d2f951a7ff756aba85cb811a6ec436933bb046"
+    },
+    "runtime": {
+      "id": "llama-cpp",
+      "name": "llama.cpp server",
+      "version": "b12721",
+      "source": "github.com/ggml-org/llama.cpp",
+      "license": "MIT",
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12721/llama-b12721-bin-win-cpu-x64.zip",
+          "size": 25224867,
+          "archive": "zip",
+          "bin": "llama-server.exe"
+        },
+        "linux-x64": {
+          "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12721/llama-b12721-bin-ubuntu-x64.tar.gz",
+          "size": 23388595,
+          "archive": "tar.gz",
+          "bin": "llama-server"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12721/llama-b12721-bin-macos-arm64.tar.gz",
+          "size": 16827585,
+          "archive": "tar.gz",
+          "bin": "llama-server"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12721/llama-b12721-bin-macos-x64.tar.gz",
+          "size": 12555465,
+          "archive": "tar.gz",
+          "bin": "llama-server"
+        }
+      }
+    }
+  },
+  "toolchains": {
+    "zig": {
+      "id": "zig",
+      "name": "Zig + Clang C/C++ Toolchain",
+      "version": "0.17.1",
+      "source": "ziglang.org",
+      "license": "MIT",
+      "systemBins": ["zig"],
+      "binNames": { "win32": "zig.exe", "default": "zig" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://ziglang.org/download/0.17.1/zig-x86_64-windows-0.17.1.zip",
+          "size": 100343666,
+          "sha256": "b03f477a1943673e202aca0f570e8030dffd536ce1f45cbc4d3326ec31159562e",
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://ziglang.org/download/0.17.1/zig-x86_64-linux-0.17.1.tar.xz",
+          "size": 57411036,
+          "sha256": "3581863e3cbcfd0fce0efc682ce7e9e93da96668a977791d356a26d2a7e9b17a",
+          "archive": "tar.xz"
+        },
+        "darwin-arm64": {
+          "url": "https://ziglang.org/download/0.17.1/zig-aarch64-macos-0.17.1.tar.xz",
+          "size": 54001240,
+          "sha256": "75f1bc7a1e9852f17ec9a0c1895f767c4ec56d46bc8a834920eece1d0359dd8d",
+          "archive": "tar.xz"
+        },
+        "darwin-x64": {
+          "url": "https://ziglang.org/download/0.17.1/zig-x86_64-macos-0.17.1.tar.xz",
+          "size": 59496824,
+          "sha256": "9af07b20319fbd0c92ee46ad23e81d6a782b1aaea2cfb8dcbff35f1d2c7ddbb7",
+          "archive": "tar.xz"
+        }
+      }
+    },
+    "python": {
+      "id": "python",
+      "name": "Python 3.12 (Standalone)",
+      "version": "3.12.16",
+      "source": "github.com/astral-sh/python-build-standalone",
+      "license": "PSF-2.0",
+      "systemBins": ["python3", "python"],
+      "binNames": { "win32": "python.exe", "default": "python3" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261124/cpython-3.12.16%2B20261124-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+          "size": 22388338,
+          "archive": "tar.gz"
+        },
+        "linux-x64": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261124/cpython-3.12.16%2B20261124-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz",
+          "size": 34754163,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261124/cpython-3.12.16%2B20261124-aarch64-apple-darwin-install_only_stripped.tar.gz",
+          "size": 25270084,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261124/cpython-3.12.16%2B20261124-x86_64-apple-darwin-install_only_stripped.tar.gz",
+          "size": 25002314,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "bun": {
+      "id": "bun",
+      "name": "Bun (JS & TypeScript Runtime)",
+      "version": "1.4.5",
+      "source": "github.com/oven-sh/bun",
+      "license": "MIT",
+      "systemBins": ["bun"],
+      "binNames": { "win32": "bun.exe", "default": "bun" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.5/bun-windows-x64.zip",
+          "size": 54437990,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.5/bun-linux-x64.zip",
+          "size": 51336055,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.5/bun-darwin-aarch64.zip",
+          "size": 39827261,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/oven-sh/bun/releases/download/bun-v1.4.5/bun-darwin-x64.zip",
+          "size": 43473769,
+          "archive": "zip"
+        }
+      }
+    },
+    "node": {
+      "id": "node",
+      "name": "Node.js 26 LTS",
+      "version": "26.13.1",
+      "source": "nodejs.org",
+      "license": "MIT",
+      "systemBins": ["node"],
+      "binNames": { "win32": "node.exe", "default": "node" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-win-x64.zip",
+          "size": 32000000,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-linux-x64.tar.xz",
+          "size": 26000000,
+          "archive": "tar.xz"
+        },
+        "darwin-arm64": {
+          "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-darwin-arm64.tar.gz",
+          "size": 42000000,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-darwin-x64.tar.gz",
+          "size": 44000000,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "deno": {
+      "id": "deno",
+      "name": "Deno",
+      "version": "2.9.8",
+      "source": "github.com/denoland/deno",
+      "license": "MIT",
+      "systemBins": ["deno"],
+      "binNames": { "win32": "deno.exe", "default": "deno" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.9.8/deno-x86_64-pc-windows-msvc.zip",
+          "size": 42917472,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.9.8/deno-x86_64-unknown-linux-gnu.zip",
+          "size": 41963064,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.9.8/deno-aarch64-apple-darwin.zip",
+          "size": 38770795,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/denoland/deno/releases/download/v2.9.8/deno-x86_64-apple-darwin.zip",
+          "size": 42797031,
+          "archive": "zip"
+        }
+      }
+    },
+    "go": {
+      "id": "go",
+      "name": "Go",
+      "version": "1.27.4",
+      "source": "go.dev",
+      "license": "BSD-3-Clause",
+      "systemBins": ["go"],
+      "binNames": { "win32": "go.exe", "default": "go" },
+      "env": { "GOROOT": "{installDir}/go" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://go.dev/dl/go1.27.4.windows-amd64.zip",
+          "size": 79077744,
+          "sha256": "178ab98950ac69ab25069307dc6ade79f3816e414cce95b4da166a115cde1e7e",
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://go.dev/dl/go1.27.4.linux-amd64.tar.gz",
+          "size": 70680823,
+          "sha256": "7226736c2339719cda28fbf3a54d71aa63bcefe376e98cef00034268dab24840",
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://go.dev/dl/go1.27.4.darwin-arm64.tar.gz",
+          "size": 68231011,
+          "sha256": "91a44a2b8a716600ad94a4f143e156116620db8828086a6e3602291be9bd0bb4",
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://go.dev/dl/go1.27.4.darwin-amd64.tar.gz",
+          "size": 71756705,
+          "sha256": "2b799377704ef12db39bd254995d5c348c9cc8d86562ca817724390e56c38f43",
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "rust": {
+      "id": "rust",
+      "name": "Rust (rustc + cargo, isolated)",
+      "version": "stable",
+      "source": "static.rust-lang.org",
+      "license": "MIT/Apache-2.0",
+      "installerKind": "rustup-isolated",
+      "systemBins": ["rustc", "cargo"],
+      "binNames": { "win32": "rustc.exe", "default": "rustc" },
+      "env": {
+        "RUSTUP_HOME": "{installDir}/rustup",
+        "CARGO_HOME": "{installDir}/cargo"
+      },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe",
+          "size": 180000000,
+          "archive": "rustup-init"
+        },
+        "linux-x64": {
+          "url": "https://static.rust-lang.org/rustup/dist/x86_64-unknown-linux-gnu/rustup-init",
+          "size": 185000000,
+          "archive": "rustup-init"
+        },
+        "darwin-arm64": {
+          "url": "https://static.rust-lang.org/rustup/dist/aarch64-apple-darwin/rustup-init",
+          "size": 170000000,
+          "archive": "rustup-init"
+        },
+        "darwin-x64": {
+          "url": "https://static.rust-lang.org/rustup/dist/x86_64-apple-darwin/rustup-init",
+          "size": 175000000,
+          "archive": "rustup-init"
+        }
+      }
+    },
+    "jdk": {
+      "id": "jdk",
+      "name": "Eclipse Temurin OpenJDK 21",
+      "version": "21.0.13",
+      "source": "adoptium.net",
+      "license": "GPL-2.0-with-classpath-exception",
+      "systemBins": ["java", "javac"],
+      "binNames": { "win32": "java.exe", "default": "java" },
+      "envFromBinParent": "JAVA_HOME",
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_x64_windows_hotspot_21.0.13.1_2.zip",
+          "size": 205447663,
+          "sha256": "bbebea1469996b276683c9299c227b294f85c847039c82633218186a4ad4fbf2",
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13.1_2.tar.gz",
+          "size": 207869899,
+          "sha256": "bb8a93f9ae6e7a693b2b721e85dbeff26ae1a77447985a8d7afcdd9c7cf6222e",
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.13.1_2.tar.gz",
+          "size": 199772678,
+          "sha256": "48067f2b7c958ed104a9d8a5749be7d25220b0a356b4d2d1bcfaab3e16ad0b14",
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13.1%2B2/OpenJDK21U-jdk_x64_mac_hotspot_21.0.13.1_2.tar.gz",
+          "size": 193986883,
+          "sha256": "1b5eff1741bb83d32e2e19aade71452bb42e40f047c01d3e178d438304c9a26d",
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "kotlin": {
+      "id": "kotlin",
+      "name": "Kotlin Compiler",
+      "version": "2.4.21",
+      "source": "github.com/JetBrains/kotlin",
+      "license": "Apache-2.0",
+      "dependsOn": ["jdk"],
+      "systemBins": ["kotlinc"],
+      "binNames": { "win32": "kotlinc.bat", "default": "kotlinc" },
+      "platforms": {
+        "all": {
+          "url": "https://github.com/JetBrains/kotlin/releases/download/v2.4.21/kotlin-compiler-2.4.21.zip",
+          "size": 89733618,
+          "archive": "zip"
+        }
+      }
+    },
+    "groovy": {
+      "id": "groovy",
+      "name": "Apache Groovy",
+      "version": "4.0.24",
+      "source": "groovy.apache.org",
+      "license": "Apache-2.0",
+      "dependsOn": ["jdk"],
+      "systemBins": ["groovy"],
+      "binNames": { "win32": "groovy.bat", "default": "groovy" },
+      "platforms": {
+        "all": {
+          "url": "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.24.zip",
+          "size": 65000000,
+          "archive": "zip"
+        }
+      }
+    },
+    "scala": {
+      "id": "scala",
+      "name": "Scala CLI",
+      "version": "1.19.0",
+      "source": "github.com/VirtusLab/scala-cli",
+      "license": "Apache-2.0",
+      "systemBins": ["scala-cli", "scala"],
+      "binNames": { "win32": "scala-cli.exe", "default": "scala-cli" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/VirtusLab/scala-cli/releases/download/v1.19.0/scala-cli-x86_64-pc-win32.zip",
+          "size": 45472524,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/VirtusLab/scala-cli/releases/download/v1.19.0/scala-cli-x86_64-pc-linux.gz",
+          "size": 45932385,
+          "archive": "gz",
+          "outputFile": "scala-cli"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/VirtusLab/scala-cli/releases/download/v1.19.0/scala-cli-aarch64-apple-darwin.gz",
+          "size": 44635382,
+          "archive": "gz",
+          "outputFile": "scala-cli"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/VirtusLab/scala-cli/releases/download/v1.19.0/scala-cli-x86_64-apple-darwin.gz",
+          "size": 44530021,
+          "archive": "gz",
+          "outputFile": "scala-cli"
+        }
+      }
+    },
+    "babashka": {
+      "id": "babashka",
+      "name": "Babashka (Clojure)",
+      "version": "1.13.230",
+      "source": "github.com/babashka/babashka",
+      "license": "EPL-1.0",
+      "systemBins": ["bb", "clojure"],
+      "binNames": { "win32": "bb.exe", "default": "bb" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/babashka/babashka/releases/download/v1.13.230/babashka-1.13.230-windows-amd64.zip",
+          "size": 27358677,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/babashka/babashka/releases/download/v1.13.230/babashka-1.13.230-linux-amd64-static.tar.gz",
+          "size": 26510461,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/babashka/babashka/releases/download/v1.13.230/babashka-1.13.230-macos-aarch64.tar.gz",
+          "size": 26993090,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/babashka/babashka/releases/download/v1.13.230/babashka-1.13.230-macos-amd64.tar.gz",
+          "size": 26452865,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "dotnet": {
+      "id": "dotnet",
+      "name": ".NET 10 SDK (C# & F#)",
+      "version": "10.0.404",
+      "source": "builds.dotnet.microsoft.com",
+      "license": "MIT",
+      "systemBins": ["dotnet"],
+      "binNames": { "win32": "dotnet.exe", "default": "dotnet" },
+      "env": {
+        "DOTNET_ROOT": "{installDir}",
+        "DOTNET_CLI_TELEMETRY_OPTOUT": "1",
+        "DOTNET_NOLOGO": "1"
+      },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-win-x64.zip",
+          "size": 220000000,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-linux-x64.tar.gz",
+          "size": 215000000,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-osx-arm64.tar.gz",
+          "size": 210000000,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-osx-x64.tar.gz",
+          "size": 215000000,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "dart": {
+      "id": "dart",
+      "name": "Dart SDK",
+      "version": "3.14.1",
+      "source": "dart.dev",
+      "license": "BSD-3-Clause",
+      "systemBins": ["dart"],
+      "binNames": { "win32": "dart.exe", "default": "dart" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.14.1/sdk/dartsdk-windows-x64-release.zip",
+          "size": 225000000,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.14.1/sdk/dartsdk-linux-x64-release.zip",
+          "size": 215000000,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.14.1/sdk/dartsdk-macos-arm64-release.zip",
+          "size": 205000000,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://storage.googleapis.com/dart-archive/channels/stable/release/3.14.1/sdk/dartsdk-macos-x64-release.zip",
+          "size": 215000000,
+          "archive": "zip"
+        }
+      }
+    },
+    "php": {
+      "id": "php",
+      "name": "PHP CLI",
+      "version": "8.4 / 8.5",
+      "source": "static-php.dev / php-builder-windows",
+      "license": "PHP-3.01",
+      "systemBins": ["php"],
+      "binNames": { "win32": "php.exe", "default": "php" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/shivammathur/php-builder-windows/releases/download/php8.4/php-8.4.28-nts-Win32-vs17-x64.zip",
+          "size": 35384096,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://dl.static-php.dev/static-php-cli/common/php-8.5.8-cli-linux-x86_64.tar.gz",
+          "size": 22000000,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://dl.static-php.dev/static-php-cli/common/php-8.5.8-cli-macos-aarch64.tar.gz",
+          "size": 20000000,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://dl.static-php.dev/static-php-cli/common/php-8.5.8-cli-macos-x86_64.tar.gz",
+          "size": 21000000,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "luau": {
+      "id": "luau",
+      "name": "Luau (Lua Runtime)",
+      "version": "0.748",
+      "source": "github.com/luau-lang/luau",
+      "license": "MIT",
+      "systemBins": ["lua", "luajit", "luau"],
+      "binNames": { "win32": "luau.exe", "default": "luau" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/luau-lang/luau/releases/download/0.748/luau-windows.zip",
+          "size": 3248091,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/luau-lang/luau/releases/download/0.748/luau-ubuntu.zip",
+          "size": 7882980,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/luau-lang/luau/releases/download/0.748/luau-macos.zip",
+          "size": 6041051,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/luau-lang/luau/releases/download/0.748/luau-macos.zip",
+          "size": 6041051,
+          "archive": "zip"
+        }
+      }
+    },
+    "sqlite": {
+      "id": "sqlite",
+      "name": "SQLite 3 CLI",
+      "version": "3.54.1",
+      "source": "sqlite.org",
+      "license": "Public Domain",
+      "systemBins": ["sqlite3"],
+      "binNames": { "win32": "sqlite3.exe", "default": "sqlite3" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://www.sqlite.org/2026/sqlite-tools-win-x64-3540100.zip",
+          "size": 5200000,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://www.sqlite.org/2026/sqlite-tools-linux-x64-3540100.zip",
+          "size": 4900000,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://www.sqlite.org/2026/sqlite-tools-osx-x64-3540100.zip",
+          "size": 4800000,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://www.sqlite.org/2026/sqlite-tools-osx-x64-3540100.zip",
+          "size": 4800000,
+          "archive": "zip"
+        }
+      }
+    },
+    "wasmtime": {
+      "id": "wasmtime",
+      "name": "Wasmtime (WebAssembly & WAT)",
+      "version": "51.0.0",
+      "source": "github.com/bytecodealliance/wasmtime",
+      "license": "Apache-2.0",
+      "systemBins": ["wasmtime"],
+      "binNames": { "win32": "wasmtime.exe", "default": "wasmtime" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/bytecodealliance/wasmtime/releases/download/v51.0.0/wasmtime-v51.0.0-x86_64-windows.zip",
+          "size": 12560257,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/bytecodealliance/wasmtime/releases/download/v51.0.0/wasmtime-v51.0.0-x86_64-linux.tar.xz",
+          "size": 11912508,
+          "archive": "tar.xz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/bytecodealliance/wasmtime/releases/download/v51.0.0/wasmtime-v51.0.0-aarch64-macos.tar.xz",
+          "size": 8958064,
+          "archive": "tar.xz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/bytecodealliance/wasmtime/releases/download/v51.0.0/wasmtime-v51.0.0-x86_64-macos.tar.xz",
+          "size": 10150932,
+          "archive": "tar.xz"
+        }
+      }
+    },
+    "pwsh": {
+      "id": "pwsh",
+      "name": "PowerShell 7",
+      "version": "7.7.0",
+      "source": "github.com/PowerShell/PowerShell",
+      "license": "MIT",
+      "systemBins": ["pwsh", "powershell"],
+      "binNames": { "win32": "pwsh.exe", "default": "pwsh" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.7.0/PowerShell-7.7.0-win-x64.zip",
+          "size": 115330228,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.7.0/powershell-7.7.0-linux-x64.tar.gz",
+          "size": 76881682,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.7.0/powershell-7.7.0-osx-arm64.tar.gz",
+          "size": 71559982,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.7.0/powershell-7.7.0-osx-x64.tar.gz",
+          "size": 75989528,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "busybox": {
+      "id": "busybox",
+      "name": "BusyBox (sh, bash, awk)",
+      "version": "latest",
+      "source": "frippery.org/busybox",
+      "license": "GPL-2.0",
+      "systemBins": ["bash", "sh"],
+      "binNames": { "win32": "busybox64.exe", "default": "sh" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://frippery.org/files/busybox/busybox64.exe",
+          "size": 580000,
+          "archive": "raw",
+          "outputFile": "busybox64.exe"
+        }
+      }
+    },
+    "julia": {
+      "id": "julia",
+      "name": "Julia",
+      "version": "1.13.4",
+      "source": "julialang.org",
+      "license": "MIT",
+      "systemBins": ["julia"],
+      "binNames": { "win32": "julia.exe", "default": "julia" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://julialang-s3.julialang.org/bin/winnt/x64/1.13/julia-1.13.4-win64.zip",
+          "size": 294767834,
+          "sha256": "ce956aa7c158be0e87be8b0857d950afab3b54e061e1b08f868087731d81417c",
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://julialang-s3.julialang.org/bin/linux/x64/1.13/julia-1.13.4-linux-x86_64.tar.gz",
+          "size": 301197140,
+          "sha256": "cf1658f13b91facccd57d41464d7125a0e48a1d24f49062d71532d04d4ec4130",
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://julialang-s3.julialang.org/bin/mac/aarch64/1.13/julia-1.13.4-macaarch64.tar.gz",
+          "size": 223621858,
+          "sha256": "8e58a1993ecbadb9a762a987eefa4e484b364a8560349609cc05e93287b9a8fe",
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://julialang-s3.julialang.org/bin/mac/x64/1.13/julia-1.13.4-mac64.tar.gz",
+          "size": 274578141,
+          "sha256": "c84de0fcb4268841f296fd56c47c27383d81358033428389b0d1882b110b9bcd",
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "nim": {
+      "id": "nim",
+      "name": "Nim Compiler",
+      "version": "2.4.2",
+      "source": "nim-lang.org",
+      "license": "MIT",
+      "dependsOn": ["zig"],
+      "systemBins": ["nim"],
+      "binNames": { "win32": "nim.exe", "default": "nim" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://nim-lang.org/download/nim-2.4.2_x64.zip",
+          "size": 45000000,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://nim-lang.org/download/nim-2.4.2-linux_x64.tar.xz",
+          "size": 32000000,
+          "archive": "tar.xz"
+        }
+      }
+    },
+    "v": {
+      "id": "v",
+      "name": "V Compiler",
+      "version": "0.5.2",
+      "source": "github.com/vlang/v",
+      "license": "MIT",
+      "systemBins": ["v"],
+      "binNames": { "win32": "v.exe", "default": "v" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/vlang/v/releases/download/0.5.2/v_windows.zip",
+          "size": 23745972,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/vlang/v/releases/download/0.5.2/v_linux.zip",
+          "size": 25674314,
+          "archive": "zip"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/vlang/v/releases/download/0.5.2/v_macos_arm64.zip",
+          "size": 24313376,
+          "archive": "zip"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/vlang/v/releases/download/0.5.2/v_macos_x86_64.zip",
+          "size": 24077806,
+          "archive": "zip"
+        }
+      }
+    },
+    "odin": {
+      "id": "odin",
+      "name": "Odin Compiler",
+      "version": "dev-2026-11a",
+      "source": "github.com/odin-lang/Odin",
+      "license": "BSD-3-Clause",
+      "systemBins": ["odin"],
+      "binNames": { "win32": "odin.exe", "default": "odin" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/odin-lang/Odin/releases/download/dev-2026-11a/odin-windows-amd64-dev-2026-11a.zip",
+          "size": 162310651,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/odin-lang/Odin/releases/download/dev-2026-11a/odin-linux-amd64-dev-2026-11a.tar.gz",
+          "size": 76175813,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/odin-lang/Odin/releases/download/dev-2026-11a/odin-macos-arm64-dev-2026-11a.tar.gz",
+          "size": 60827906,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "ldc": {
+      "id": "ldc",
+      "name": "LDC2 (D Compiler)",
+      "version": "1.43.0",
+      "source": "github.com/ldc-developers/ldc",
+      "license": "BSD-3-Clause",
+      "systemBins": ["ldc2", "dmd", "rdmd"],
+      "binNames": { "win32": "ldc2.exe", "default": "ldc2" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/ldc-developers/ldc/releases/download/v1.43.0/ldc2-1.43.0-windows-x64.7z",
+          "size": 45810532,
+          "archive": "7z"
+        },
+        "linux-x64": {
+          "url": "https://github.com/ldc-developers/ldc/releases/download/v1.43.0/ldc2-1.43.0-linux-x86_64.tar.xz",
+          "size": 98222080,
+          "archive": "tar.xz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/ldc-developers/ldc/releases/download/v1.43.0/ldc2-1.43.0-osx-arm64.tar.xz",
+          "size": 86413980,
+          "archive": "tar.xz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/ldc-developers/ldc/releases/download/v1.43.0/ldc2-1.43.0-osx-x86_64.tar.xz",
+          "size": 92726484,
+          "archive": "tar.xz"
+        }
+      }
+    },
+    "crystal": {
+      "id": "crystal",
+      "name": "Crystal Compiler",
+      "version": "1.22.3",
+      "source": "github.com/crystal-lang/crystal",
+      "license": "Apache-2.0",
+      "systemBins": ["crystal"],
+      "binNames": { "win32": "crystal.exe", "default": "crystal" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/crystal-lang/crystal/releases/download/1.22.3/crystal-1.22.3-windows-x86_64-gnu-unsupported.zip",
+          "size": 62472575,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/crystal-lang/crystal/releases/download/1.22.3/crystal-1.22.3-1-linux-x86_64.tar.gz",
+          "size": 61645743,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/crystal-lang/crystal/releases/download/1.22.3/crystal-1.22.3-1-darwin-universal.tar.gz",
+          "size": 59789816,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/crystal-lang/crystal/releases/download/1.22.3/crystal-1.22.3-1-darwin-universal.tar.gz",
+          "size": 59789816,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "gleam": {
+      "id": "gleam",
+      "name": "Gleam Compiler",
+      "version": "1.19.2",
+      "source": "github.com/gleam-lang/gleam",
+      "license": "Apache-2.0",
+      "systemBins": ["gleam"],
+      "binNames": { "win32": "gleam.exe", "default": "gleam" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/gleam-lang/gleam/releases/download/v1.19.2/gleam-v1.19.2-x86_64-pc-windows-msvc.zip",
+          "size": 8697119,
+          "archive": "zip"
+        },
+        "linux-x64": {
+          "url": "https://github.com/gleam-lang/gleam/releases/download/v1.19.2/gleam-v1.19.2-x86_64-unknown-linux-musl.tar.gz",
+          "size": 10565692,
+          "archive": "tar.gz"
+        },
+        "darwin-arm64": {
+          "url": "https://github.com/gleam-lang/gleam/releases/download/v1.19.2/gleam-v1.19.2-aarch64-apple-darwin.tar.gz",
+          "size": 9234148,
+          "archive": "tar.gz"
+        },
+        "darwin-x64": {
+          "url": "https://github.com/gleam-lang/gleam/releases/download/v1.19.2/gleam-v1.19.2-x86_64-apple-darwin.tar.gz",
+          "size": 9702221,
+          "archive": "tar.gz"
+        }
+      }
+    },
+    "ruby": {
+      "id": "ruby",
+      "name": "Ruby",
+      "version": "4.0.10",
+      "source": "github.com/oneclick/rubyinstaller2",
+      "license": "BSD-2-Clause",
+      "systemBins": ["ruby"],
+      "binNames": { "win32": "ruby.exe", "default": "ruby" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-4.0.10-1/rubyinstaller-4.0.10-1-x64.7z",
+          "size": 17776622,
+          "archive": "7z"
+        }
+      },
+      "packageManagerHint": {
+        "linux": "sudo apt-get install -y ruby",
+        "darwin": "brew install ruby"
+      }
+    },
+    "perl": {
+      "id": "perl",
+      "name": "Strawberry Perl (Portable)",
+      "version": "5.42.3.1",
+      "source": "strawberryperl.com",
+      "license": "Artistic-1.0",
+      "systemBins": ["perl"],
+      "binNames": { "win32": "perl.exe", "default": "perl" },
+      "platforms": {
+        "win32-x64": {
+          "url": "https://github.com/StrawberryPerl/Perl-Dist-Strawberry/releases/download/SP_54231_64bit/strawberry-perl-5.42.3.1-64bit-portable.zip",
+          "size": 304765269,
+          "archive": "zip"
+        }
+      },
+      "packageManagerHint": {
+        "linux": "sudo apt-get install -y perl",
+        "darwin": "brew install perl"
+      }
+    },
+    "elixir": {
+      "id": "elixir",
+      "name": "Elixir",
+      "version": "1.20.5",
+      "source": "github.com/elixir-lang/elixir",
+      "license": "Apache-2.0",
+      "systemBins": ["elixir"],
+      "binNames": { "win32": "elixir.bat", "default": "elixir" },
+      "platforms": {
+        "all": {
+          "url": "https://github.com/elixir-lang/elixir/releases/download/v1.20.5/elixir-otp-28.zip",
+          "size": 8633579,
+          "archive": "zip"
+        }
+      },
+      "packageManagerHint": {
+        "win32": "winget install ElixirLang.Elixir",
+        "linux": "sudo apt-get install -y elixir",
+        "darwin": "brew install elixir"
+      }
+    }
+  },
+  "languages": [
+    {
+      "id": "c",
+      "name": "C",
+      "extensions": [".c"],
+      "toolchain": "zig",
+      "systemCommands": [
+        { "bin": "gcc", "compile": ["gcc", "-O0", "-g", "{file}", "-o", "{out}", "-lm"], "run": ["{out}"] },
+        { "bin": "clang", "compile": ["clang", "-O0", "-g", "{file}", "-o", "{out}", "-lm"], "run": ["{out}"] },
+        { "bin": "cc", "compile": ["cc", "-O0", "{file}", "-o", "{out}", "-lm"], "run": ["{out}"] }
+      ],
+      "managedCommand": {
+        "compile": ["zig", "cc", "-O0", "{file}", "-o", "{out}"],
+        "run": ["{out}"]
+      }
+    },
+    {
+      "id": "cpp",
+      "name": "C++",
+      "extensions": [".cpp", ".cc", ".cxx", ".hpp"],
+      "toolchain": "zig",
+      "systemCommands": [
+        { "bin": "g++", "compile": ["g++", "-std=c++20", "-O0", "-g", "{file}", "-o", "{out}"], "run": ["{out}"] },
+        { "bin": "clang++", "compile": ["clang++", "-std=c++20", "-O0", "-g", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "managedCommand": {
+        "compile": ["zig", "c++", "-std=c++20", "-O0", "{file}", "-o", "{out}"],
+        "run": ["{out}"]
+      }
+    },
+    {
+      "id": "zig",
+      "name": "Zig",
+      "extensions": [".zig"],
+      "toolchain": "zig",
+      "systemCommands": [
+        { "bin": "zig", "run": ["zig", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["zig", "run", "{file}"]
+      }
+    },
+    {
+      "id": "asm",
+      "name": "Assembly",
+      "extensions": [".s", ".S"],
+      "toolchain": "zig",
+      "systemCommands": [
+        { "bin": "gcc", "compile": ["gcc", "{file}", "-o", "{out}"], "run": ["{out}"] },
+        { "bin": "clang", "compile": ["clang", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "managedCommand": {
+        "compile": ["zig", "cc", "{file}", "-o", "{out}"],
+        "run": ["{out}"]
+      }
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "extensions": [".py", ".pyw"],
+      "shebangs": ["python", "python3"],
+      "toolchain": "python",
+      "systemCommands": [
+        { "bin": "python3", "run": ["python3", "-u", "{file}"] },
+        { "bin": "python", "run": ["python", "-u", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "-u", "{file}"]
+      }
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript",
+      "extensions": [".js", ".mjs", ".cjs", ".jsx"],
+      "shebangs": ["node", "bun", "deno"],
+      "toolchain": "bun",
+      "systemCommands": [
+        { "bin": "bun", "run": ["bun", "run", "{file}"] },
+        { "bin": "node", "run": ["node", "{file}"] },
+        { "bin": "deno", "run": ["deno", "run", "--allow-all", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "extensions": [".ts", ".mts", ".cts", ".tsx"],
+      "shebangs": ["bun", "deno", "tsx"],
+      "toolchain": "bun",
+      "systemCommands": [
+        { "bin": "bun", "run": ["bun", "run", "{file}"] },
+        { "bin": "deno", "run": ["deno", "run", "--allow-all", "{file}"] },
+        { "bin": "tsx", "run": ["tsx", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "extensions": [".rs"],
+      "toolchain": "rust",
+      "systemCommands": [
+        { "bin": "rustc", "compile": ["rustc", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "managedCommand": {
+        "compile": ["rustc", "{file}", "-o", "{out}"],
+        "run": ["{out}"]
+      }
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "extensions": [".go"],
+      "toolchain": "go",
+      "systemCommands": [
+        { "bin": "go", "run": ["go", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["go", "run", "{file}"]
+      }
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "extensions": [".java"],
+      "toolchain": "jdk",
+      "systemCommands": [
+        { "bin": "java", "run": ["java", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["java", "{file}"]
+      }
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin",
+      "extensions": [".kt", ".kts"],
+      "toolchain": "kotlin",
+      "systemCommands": [
+        { "bin": "kotlinc", "compile": ["kotlinc", "{file}", "-include-runtime", "-d", "{out}.jar"], "run": ["java", "-jar", "{out}.jar"] }
+      ],
+      "managedCommand": {
+        "compile": ["{toolchainBin}", "{file}", "-include-runtime", "-d", "{out}.jar"],
+        "run": ["java", "-jar", "{out}.jar"]
+      }
+    },
+    {
+      "id": "scala",
+      "name": "Scala",
+      "extensions": [".scala", ".sc"],
+      "toolchain": "scala",
+      "systemCommands": [
+        { "bin": "scala-cli", "run": ["scala-cli", "run", "{file}"] },
+        { "bin": "scala", "run": ["scala", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "groovy",
+      "name": "Groovy",
+      "extensions": [".groovy"],
+      "toolchain": "groovy",
+      "systemCommands": [
+        { "bin": "groovy", "run": ["groovy", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "clojure",
+      "name": "Clojure",
+      "extensions": [".clj", ".cljs", ".bb"],
+      "toolchain": "babashka",
+      "systemCommands": [
+        { "bin": "bb", "run": ["bb", "{file}"] },
+        { "bin": "clojure", "run": ["clojure", "-M", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "csharp",
+      "name": "C#",
+      "extensions": [".cs"],
+      "toolchain": "dotnet",
+      "specialRunner": "dotnet-single-cs",
+      "systemCommands": [
+        { "bin": "dotnet", "run": ["dotnet", "run"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run"]
+      }
+    },
+    {
+      "id": "fsharp",
+      "name": "F#",
+      "extensions": [".fs", ".fsx"],
+      "toolchain": "dotnet",
+      "systemCommands": [
+        { "bin": "dotnet", "run": ["dotnet", "fsi", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "fsi", "{file}"]
+      }
+    },
+    {
+      "id": "dart",
+      "name": "Dart",
+      "extensions": [".dart"],
+      "toolchain": "dart",
+      "systemCommands": [
+        { "bin": "dart", "run": ["dart", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "extensions": [".php"],
+      "shebangs": ["php"],
+      "toolchain": "php",
+      "systemCommands": [
+        { "bin": "php", "run": ["php", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "ruby",
+      "name": "Ruby",
+      "extensions": [".rb"],
+      "shebangs": ["ruby"],
+      "toolchain": "ruby",
+      "systemCommands": [
+        { "bin": "ruby", "run": ["ruby", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "lua",
+      "name": "Lua / Luau",
+      "extensions": [".lua", ".luau"],
+      "shebangs": ["lua", "luajit", "luau"],
+      "toolchain": "luau",
+      "systemCommands": [
+        { "bin": "lua", "run": ["lua", "{file}"] },
+        { "bin": "luajit", "run": ["luajit", "{file}"] },
+        { "bin": "luau", "run": ["luau", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "perl",
+      "name": "Perl",
+      "extensions": [".pl", ".pm"],
+      "shebangs": ["perl"],
+      "toolchain": "perl",
+      "systemCommands": [
+        { "bin": "perl", "run": ["perl", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "shell",
+      "name": "Shell / Bash",
+      "extensions": [".sh", ".bash", ".zsh"],
+      "shebangs": ["sh", "bash", "zsh"],
+      "toolchain": "busybox",
+      "systemCommands": [
+        { "bin": "bash", "run": ["bash", "{file}"] },
+        { "bin": "sh", "run": ["sh", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "sh", "{file}"]
+      }
+    },
+    {
+      "id": "awk",
+      "name": "AWK",
+      "extensions": [".awk"],
+      "toolchain": "busybox",
+      "systemCommands": [
+        { "bin": "awk", "run": ["awk", "-f", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "awk", "-f", "{file}"]
+      }
+    },
+    {
+      "id": "powershell",
+      "name": "PowerShell",
+      "extensions": [".ps1"],
+      "toolchain": "pwsh",
+      "systemCommands": [
+        { "bin": "pwsh", "run": ["pwsh", "-NoProfile", "-File", "{file}"] },
+        { "bin": "powershell", "run": ["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "-NoProfile", "-File", "{file}"]
+      }
+    },
+    {
+      "id": "sql",
+      "name": "SQL (SQLite)",
+      "extensions": [".sql"],
+      "toolchain": "sqlite",
+      "systemCommands": [
+        { "bin": "sqlite3", "run": ["sqlite3", "-box", ":memory:", ".read {file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "-box", ":memory:", ".read {file}"]
+      }
+    },
+    {
+      "id": "wasm",
+      "name": "WebAssembly / WAT",
+      "extensions": [".wat", ".wasm"],
+      "toolchain": "wasmtime",
+      "systemCommands": [
+        { "bin": "wasmtime", "run": ["wasmtime", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "julia",
+      "name": "Julia",
+      "extensions": [".jl"],
+      "toolchain": "julia",
+      "systemCommands": [
+        { "bin": "julia", "run": ["julia", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "nim",
+      "name": "Nim",
+      "extensions": [".nim"],
+      "toolchain": "nim",
+      "systemCommands": [
+        { "bin": "nim", "run": ["nim", "compile", "--run", "--hints:off", "--verbosity:0", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "compile", "--run", "--hints:off", "--verbosity:0", "{file}"]
+      }
+    },
+    {
+      "id": "v",
+      "name": "V",
+      "extensions": [".v"],
+      "toolchain": "v",
+      "systemCommands": [
+        { "bin": "v", "run": ["v", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "odin",
+      "name": "Odin",
+      "extensions": [".odin"],
+      "toolchain": "odin",
+      "systemCommands": [
+        { "bin": "odin", "run": ["odin", "run", "{file}", "-file"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}", "-file"]
+      }
+    },
+    {
+      "id": "d",
+      "name": "D",
+      "extensions": [".d"],
+      "toolchain": "ldc",
+      "systemCommands": [
+        { "bin": "ldc2", "compile": ["ldc2", "{file}", "-of={out}"], "run": ["{out}"] },
+        { "bin": "rdmd", "run": ["rdmd", "{file}"] },
+        { "bin": "dmd", "run": ["dmd", "-run", "{file}"] }
+      ],
+      "managedCommand": {
+        "compile": ["{toolchainBin}", "{file}", "-of={out}"],
+        "run": ["{out}"]
+      }
+    },
+    {
+      "id": "crystal",
+      "name": "Crystal",
+      "extensions": [".cr"],
+      "toolchain": "crystal",
+      "systemCommands": [
+        { "bin": "crystal", "run": ["crystal", "run", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run", "{file}"]
+      }
+    },
+    {
+      "id": "gleam",
+      "name": "Gleam",
+      "extensions": [".gleam"],
+      "toolchain": "gleam",
+      "systemCommands": [
+        { "bin": "gleam", "run": ["gleam", "run"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "run"]
+      }
+    },
+    {
+      "id": "elixir",
+      "name": "Elixir",
+      "extensions": [".ex", ".exs"],
+      "toolchain": "elixir",
+      "systemCommands": [
+        { "bin": "elixir", "run": ["elixir", "{file}"] }
+      ],
+      "managedCommand": {
+        "run": ["{toolchainBin}", "{file}"]
+      }
+    },
+    {
+      "id": "swift",
+      "name": "Swift",
+      "extensions": [".swift"],
+      "systemCommands": [
+        { "bin": "swift", "run": ["swift", "{file}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install Swift.Toolchain",
+        "darwin": "xcode-select --install",
+        "linux": "Install from swift.org/download"
+      }
+    },
+    {
+      "id": "haskell",
+      "name": "Haskell",
+      "extensions": [".hs"],
+      "systemCommands": [
+        { "bin": "runghc", "run": ["runghc", "{file}"] },
+        { "bin": "ghc", "compile": ["ghc", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install Haskell.GHCup",
+        "darwin": "brew install ghc",
+        "linux": "sudo apt-get install -y ghc"
+      }
+    },
+    {
+      "id": "r",
+      "name": "R",
+      "extensions": [".r", ".R"],
+      "systemCommands": [
+        { "bin": "Rscript", "run": ["Rscript", "{file}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install RProject.R",
+        "darwin": "brew install r",
+        "linux": "sudo apt-get install -y r-base"
+      }
+    },
+    {
+      "id": "ocaml",
+      "name": "OCaml",
+      "extensions": [".ml"],
+      "systemCommands": [
+        { "bin": "ocaml", "run": ["ocaml", "{file}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install OCaml.opam",
+        "darwin": "brew install ocaml",
+        "linux": "sudo apt-get install -y ocaml"
+      }
+    },
+    {
+      "id": "fortran",
+      "name": "Fortran",
+      "extensions": [".f90", ".f95", ".f03", ".f"],
+      "systemCommands": [
+        { "bin": "gfortran", "compile": ["gfortran", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install BrechtSanders.WinLibs.POSIX.UCRT",
+        "darwin": "brew install gcc",
+        "linux": "sudo apt-get install -y gfortran"
+      }
+    },
+    {
+      "id": "pascal",
+      "name": "Pascal",
+      "extensions": [".pas", ".pp"],
+      "systemCommands": [
+        { "bin": "fpc", "compile": ["fpc", "-o{out}", "{file}"], "run": ["{out}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "scoop install fpc",
+        "darwin": "brew install fpc",
+        "linux": "sudo apt-get install -y fpc"
+      }
+    },
+    {
+      "id": "cobol",
+      "name": "COBOL",
+      "extensions": [".cob", ".cbl"],
+      "systemCommands": [
+        { "bin": "cobc", "compile": ["cobc", "-x", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "scoop install gnucobol",
+        "darwin": "brew install gnucobol",
+        "linux": "sudo apt-get install -y gnucobol"
+      }
+    },
+    {
+      "id": "ada",
+      "name": "Ada",
+      "extensions": [".adb", ".ads"],
+      "systemCommands": [
+        { "bin": "gnatmake", "compile": ["gnatmake", "{file}", "-o", "{out}"], "run": ["{out}"] }
+      ],
+      "packageManagerHint": {
+        "darwin": "brew install gcc",
+        "linux": "sudo apt-get install -y gnat"
+      }
+    },
+    {
+      "id": "prolog",
+      "name": "Prolog",
+      "extensions": [".pro", ".plg"],
+      "systemCommands": [
+        { "bin": "swipl", "run": ["swipl", "-q", "-s", "{file}", "-t", "halt"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install SWI-Prolog.SWI-Prolog",
+        "darwin": "brew install swi-prolog",
+        "linux": "sudo apt-get install -y swi-prolog"
+      }
+    },
+    {
+      "id": "erlang",
+      "name": "Erlang",
+      "extensions": [".erl", ".escript"],
+      "systemCommands": [
+        { "bin": "escript", "run": ["escript", "{file}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install Erlang.ErlangOTP",
+        "darwin": "brew install erlang",
+        "linux": "sudo apt-get install -y erlang"
+      }
+    },
+    {
+      "id": "racket",
+      "name": "Racket / Scheme",
+      "extensions": [".rkt", ".scm"],
+      "systemCommands": [
+        { "bin": "racket", "run": ["racket", "{file}"] },
+        { "bin": "guile", "run": ["guile", "{file}"] }
+      ],
+      "packageManagerHint": {
+        "win32": "winget install Racket.Racket",
+        "darwin": "brew install minimal-racket",
+        "linux": "sudo apt-get install -y racket"
+      }
+    },
+    {
+      "id": "html",
+      "name": "HTML",
+      "extensions": [".html", ".htm", ".svg"],
+      "builtinRunner": "preview-html"
+    },
+    {
+      "id": "markdown",
+      "name": "Markdown",
+      "extensions": [".md", ".markdown"],
+      "builtinRunner": "preview-markdown"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "extensions": [".json"],
+      "builtinRunner": "validate-json"
+    },
+    {
+      "id": "yaml",
+      "name": "YAML",
+      "extensions": [".yml", ".yaml"],
+      "builtinRunner": "validate-yaml"
+    },
+    {
+      "id": "toml",
+      "name": "TOML",
+      "extensions": [".toml"],
+      "builtinRunner": "validate-toml"
+    },
+    {
+      "id": "css",
+      "name": "CSS",
+      "extensions": [".css", ".scss"],
+      "builtinRunner": "validate-css"
+    }
+  ],
+  "projectDetectors": [
+    { "file": "Cargo.toml", "language": "rust", "toolchain": "rust", "cmd": ["cargo", "run"] },
+    { "file": "go.mod", "language": "go", "toolchain": "go", "cmd": ["go", "run", "."] },
+    { "file": "build.zig", "language": "zig", "toolchain": "zig", "cmd": ["zig", "build", "run"] },
+    { "file": "gleam.toml", "language": "gleam", "toolchain": "gleam", "cmd": ["gleam", "run"] },
+    { "file": "mix.exs", "language": "elixir", "toolchain": "elixir", "cmd": ["mix", "run"] },
+    { "file": "pubspec.yaml", "language": "dart", "toolchain": "dart", "cmd": ["dart", "run"] },
+    { "file": "Makefile", "language": "c", "toolchain": "zig", "cmd": ["make"] }
+  ]
+}

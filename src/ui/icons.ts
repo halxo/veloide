@@ -1,0 +1,26 @@
+// Reused from VeloWrite (halxo/velowrite) and extended with minimal code/run icons
+
+export const ICONS = {
+  sidebar: `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2.5" width="12" height="11" rx="2"/><path d="M6 2.5v11"/></svg>`,
+  search: `<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="7.2" r="4.8"/><path d="M13.5 13.5l-2.9-2.9"/></svg>`,
+  plus: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 3.2v9.6M3.2 8h9.6"/></svg>`,
+  close: `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 4l8 8M12 4l-8 8"/></svg>`,
+  trash: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4.5h10M6 4.5V3h4v1.5M4.5 4.5l.6 8.5h5.8l.6-8.5"/></svg>`,
+  code: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5.5 4.5L2 8l3.5 3.5M10.5 4.5L14 8l-3.5 3.5"/></svg>`,
+  play: `<svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M4.2 2.8a.8.8 0 0 1 1.22-.68l8.1 5.2a.8.8 0 0 1 0 1.36l-8.1 5.2a.8.8 0 0 1-1.22-.68V2.8z"/></svg>`,
+  stop: `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="3" width="10" height="10" rx="1.8"/></svg>`,
+  terminal: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2.8" width="12" height="10.4" rx="2"/><path d="M4.8 6.4L7 8.4l-2.2 2M8.4 10.4h2.8"/></svg>`,
+  folder: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.2a1.4 1.4 0 0 1 1.4-1.4h3l1.5 1.6h4.7A1.4 1.4 0 0 1 14 5.8v6a1.4 1.4 0 0 1-1.4 1.4H3.4A1.4 1.4 0 0 1 2 11.8V4.2z"/></svg>`,
+  file: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2.2h5.2L12.5 5.5v8.3H4V2.2z"/><path d="M9 2.2v3.5h3.5"/></svg>`,
+  history: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 8a5.5 5.5 0 1 0 1.4-3.7L2.2 6"/><path d="M2.2 3v3h3"/><path d="M8 5.2v3l2 1.2"/></svg>`,
+  download: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5v7.5M5 7.5L8 10.5l3-3M2.5 12.5h11"/></svg>`,
+  sun: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="8" cy="8" r="3"/><path d="M8 1.8v1.4M8 12.8v1.4M1.8 8h1.4M12.8 8h1.4M3.6 3.6l1 1M11.4 11.4l1 1M12.4 3.6l-1 1M4.6 11.4l-1 1"/></svg>`,
+  moon: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 9.8A5.2 5.2 0 1 1 6.2 3a4.2 4.2 0 0 0 6.8 6.8z"/></svg>`,
+  sepia: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h10v10H3z"/><path d="M5.5 6h5M5.5 8.5h5M5.5 11h3"/></svg>`,
+  bolt: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 1.8L3.5 9h4.2L7 14.2 12.5 7H8.3L9 1.8z"/></svg>`,
+  spark: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2l1.4 4.1L13.5 7.5l-4.1 1.4L8 13l-1.4-4.1L2.5 7.5l4.1-1.4L8 2z"/></svg>`,
+  package: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2L13.5 5v6L8 14l-5.5-3V5L8 2z"/><path d="M2.5 5L8 8l5.5-3M8 8v6"/></svg>`,
+  usb: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6.5" width="8" height="7" rx="1.5"/><path d="M5.5 6.5V3h5v3.5M7 4.7h.5M8.5 4.7H9"/></svg>`,
+  save: `<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2.5h8l2 2v9H3v-11z"/><path d="M5.5 2.5v3.5h5V2.5M5.5 13.5v-4h5v4"/></svg>`,
+  chevronRight: `<svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4l4 4-4 4"/></svg>`,
+};
