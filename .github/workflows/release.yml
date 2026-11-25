@@ -82,8 +82,9 @@ jobs:
           | **Portable (macOS)** | `VeloIde-Portable-1.0.0-mac-arm64.zip` | Self-contained macOS folder/USB stick |
           EOF
           )
-          gh release edit "$TAG" --title "VeloIde $TAG" --notes "$NOTES"
           gh release upload "$TAG" release/VeloIde-Portable-*-win-x64.zip --clobber
+          REL_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${TAG}" --jq .id)
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${REL_ID}" -f name="VeloIde ${TAG}" -f body="$NOTES" >/dev/null
 
   build-linux:
     runs-on: ubuntu-latest

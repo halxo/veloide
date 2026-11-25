@@ -3,7 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "description": "Ultra-fast, free, local-first ziptie IDE based on VeloWrite — open any file, press Run, and any compiler installs on demand. Includes local Qwen2.5-Coder-1.5B autocomplete and standalone Portable mode.",
-  "author": "halxo",
+  "author": "halxo <halxo@users.noreply.github.com>",
+  "homepage": "https://github.com/halxo/veloide",
   "license": "MIT",
   "type": "module",
   "main": "electron/main.cjs",
@@ -60,6 +61,7 @@
       "deleteAppDataOnUninstall": false
     },
     "linux": {
+      "maintainer": "halxo <halxo@users.noreply.github.com>",
       "target": [
         {
           "target": "AppImage",
