@@ -46,20 +46,22 @@ jobs:
       - name: Build frontend
         run: npm run build
 
-      - name: Build & Publish Windows Installer (.exe + auto-updater latest.yml)
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx electron-builder --win nsis --x64 --publish always
-
-      - name: Build Windows Portable (.zip with portable marker)
+      - name: Build Windows Installer (.exe + latest.yml) & Portable (.zip)
         shell: bash
-        run: node scripts/build-portable.mjs win
+        run: |
+          npx electron-builder --win nsis --x64 --publish never
+          node scripts/write-latest-yml.mjs
+          node scripts/build-portable.mjs win
 
-      - name: Upload Windows Portable artifact
+      - name: Upload Windows release artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: windows-portable
-          path: release/VeloIde-Portable-*.zip
+          name: windows-assets
+          path: |
+            release/VeloIde-Setup-*.exe
+            release/VeloIde-Setup-*.exe.blockmap
+            release/latest.yml
+            release/VeloIde-Portable-*.zip
 
   build-linux:
     runs-on: ubuntu-latest
@@ -139,14 +141,12 @@ jobs:
           path: all-assets
           merge-multiple: true
 
-      - name: Upload all Portable & Unix assets and publish GitHub Release
+      - name: Publish atomic GitHub Release with all Installer & Portable builds
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ needs.build-windows.outputs.tag }}
         run: |
           ls -lh all-assets/
-          gh release upload "$TAG" all-assets/* --clobber
-
           NOTES=$(cat <<'EOF'
           ## VeloIde — Open it. Fix it. Run it. Close it.
 
@@ -161,17 +161,18 @@ jobs:
           | --- | --- | --- |
           | **Installer (Windows)** | `VeloIde-Setup-1.0.0.exe` | Daily driver with Start Menu shortcuts & automatic GitHub updates |
           | **Portable (Windows)** | `VeloIde-Portable-1.0.0-win-x64.zip` | USB stick or drop-anywhere folder — stores everything in `./data/` and leaves nothing behind |
-          | **Installer (Linux)** | `VeloIde-1.0.0-linux-x64.AppImage` / `.deb` | Native Linux desktop install |
+          | **Installer (Linux)** | `VeloIde-1.0.0-linux-x86_64.AppImage` / `VeloIde-1.0.0-linux-amd64.deb` | Native Linux desktop install |
           | **Portable (Linux)** | `VeloIde-Portable-1.0.0-linux-x64.tar.gz` | Self-contained folder/USB stick on Linux |
           | **Installer (macOS)** | `VeloIde-1.0.0-mac-arm64.dmg` | Drag-to-Applications macOS install |
           | **Portable (macOS)** | `VeloIde-Portable-1.0.0-mac-arm64.zip` | Self-contained macOS folder/USB stick |
           EOF
           )
 
-          # Locate the release by tag_name even while in draft state, then publish it atomically
-          REL_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases" --jq ".[] | select(.tag_name == \"${TAG}\") | .id" | head -1)
-          echo "Publishing release ID: ${REL_ID} for tag ${TAG}"
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${REL_ID}" \
-            -f name="VeloIde ${TAG}" \
-            -f body="$NOTES" \
-            -F draft=false >/dev/null
+          if gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release upload "$TAG" all-assets/* -R "$GITHUB_REPOSITORY" --clobber
+          else
+            gh release create "$TAG" all-assets/* \
+              -R "$GITHUB_REPOSITORY" \
+              --title "VeloIde $TAG" \
+              --notes "$NOTES"
+          fi
