@@ -53,38 +53,13 @@ jobs:
 
       - name: Build Windows Portable (.zip with portable marker)
         shell: bash
-        run: |
-          node scripts/build-portable.mjs win
+        run: node scripts/build-portable.mjs win
 
-      - name: Upload Windows Portable zip & update Release Notes
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG: ${{ steps.meta.outputs.tag }}
-        shell: bash
-        run: |
-          NOTES=$(cat <<'EOF'
-          ## VeloIde — Open it. Fix it. Run it. Close it.
-
-          Free, local-first ziptie IDE based on [VeloWrite](https://github.com/halxo/velowrite).
-          - **45+ languages, compilers installed on demand** (zero compilers pre-bundled; system compilers used first)
-          - **Local Qwen2.5-Coder-1.5B autocomplete** (offline FIM ghost text via `llama.cpp`, downloadable on demand or disabled permanently)
-          - **Zero accounts, zero telemetry, 100% free**
-
-          ### Choose your mode
-
-          | Mode | Download | Best for |
-          | --- | --- | --- |
-          | **Installer (Windows)** | `VeloIde-Setup-1.0.0.exe` | Daily driver with Start Menu shortcuts & automatic GitHub updates |
-          | **Portable (Windows)** | `VeloIde-Portable-1.0.0-win-x64.zip` | USB stick or drop-anywhere folder — stores everything in `./data/` and leaves nothing behind |
-          | **Installer (Linux)** | `VeloIde-1.0.0-linux-x64.AppImage` / `.deb` | Native Linux desktop install |
-          | **Portable (Linux)** | `VeloIde-Portable-1.0.0-linux-x64.tar.gz` | Self-contained folder/USB stick on Linux |
-          | **Installer (macOS)** | `VeloIde-1.0.0-mac-arm64.dmg` | Drag-to-Applications macOS install |
-          | **Portable (macOS)** | `VeloIde-Portable-1.0.0-mac-arm64.zip` | Self-contained macOS folder/USB stick |
-          EOF
-          )
-          gh release upload "$TAG" release/VeloIde-Portable-*-win-x64.zip --clobber
-          REL_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases/tags/${TAG}" --jq .id)
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${REL_ID}" -f name="VeloIde ${TAG}" -f body="$NOTES" >/dev/null
+      - name: Upload Windows Portable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-portable
+          path: release/VeloIde-Portable-*.zip
 
   build-linux:
     runs-on: ubuntu-latest
@@ -154,26 +129,49 @@ jobs:
             release/VeloIde-*.dmg
             release/VeloIde-Portable-*.zip
 
-  publish-unix-assets:
+  publish-release:
     needs: [build-windows, build-linux, build-macos]
     runs-on: ubuntu-latest
     steps:
-      - name: Download Linux artifacts
+      - name: Download all release artifacts
         uses: actions/download-artifact@v4
         with:
-          name: linux-assets
-          path: assets
+          path: all-assets
+          merge-multiple: true
 
-      - name: Download macOS artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: macos-assets
-          path: assets
-
-      - name: Attach Linux & macOS Installer + Portable assets to GitHub Release
+      - name: Upload all Portable & Unix assets and publish GitHub Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ needs.build-windows.outputs.tag }}
         run: |
-          ls -lh assets/
-          gh release upload "$TAG" assets/* --clobber
+          ls -lh all-assets/
+          gh release upload "$TAG" all-assets/* --clobber
+
+          NOTES=$(cat <<'EOF'
+          ## VeloIde — Open it. Fix it. Run it. Close it.
+
+          Free, local-first ziptie IDE based on [VeloWrite](https://github.com/halxo/velowrite).
+          - **45+ languages, compilers installed on demand** (zero compilers pre-bundled; system compilers used first)
+          - **Local Qwen2.5-Coder-1.5B autocomplete** (offline FIM ghost text via `llama.cpp`, downloadable on demand or disabled permanently)
+          - **Zero accounts, zero telemetry, 100% free**
+
+          ### Choose your mode
+
+          | Mode | Download | Best for |
+          | --- | --- | --- |
+          | **Installer (Windows)** | `VeloIde-Setup-1.0.0.exe` | Daily driver with Start Menu shortcuts & automatic GitHub updates |
+          | **Portable (Windows)** | `VeloIde-Portable-1.0.0-win-x64.zip` | USB stick or drop-anywhere folder — stores everything in `./data/` and leaves nothing behind |
+          | **Installer (Linux)** | `VeloIde-1.0.0-linux-x64.AppImage` / `.deb` | Native Linux desktop install |
+          | **Portable (Linux)** | `VeloIde-Portable-1.0.0-linux-x64.tar.gz` | Self-contained folder/USB stick on Linux |
+          | **Installer (macOS)** | `VeloIde-1.0.0-mac-arm64.dmg` | Drag-to-Applications macOS install |
+          | **Portable (macOS)** | `VeloIde-Portable-1.0.0-mac-arm64.zip` | Self-contained macOS folder/USB stick |
+          EOF
+          )
+
+          # Locate the release by tag_name even while in draft state, then publish it atomically
+          REL_ID=$(gh api "repos/${GITHUB_REPOSITORY}/releases" --jq ".[] | select(.tag_name == \"${TAG}\") | .id" | head -1)
+          echo "Publishing release ID: ${REL_ID} for tag ${TAG}"
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/releases/${REL_ID}" \
+            -f name="VeloIde ${TAG}" \
+            -f body="$NOTES" \
+            -F draft=false >/dev/null
